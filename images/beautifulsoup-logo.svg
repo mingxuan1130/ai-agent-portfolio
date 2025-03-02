@@ -1,0 +1,35 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="soupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7d5ba6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5d3f94;stop-opacity:1" />
+    </linearGradient>
+    <filter id="steam" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+  </defs>
+  
+  <g transform="translate(5, 5) scale(0.9)">
+    <!-- Soup bowl -->
+    <ellipse cx="50" cy="65" rx="40" ry="10" fill="#d9d9d9" stroke="#a0a0a0" stroke-width="1"/>
+    <path d="M 10,65 C 10,65 10,40 50,40 C 90,40 90,65 90,65" fill="url(#soupGrad)" stroke="#5d3f94" stroke-width="2"/>
+    
+    <!-- Bowl rim -->
+    <path d="M 10,65 C 10,60 30,55 50,55 C 70,55 90,60 90,65" fill="none" stroke="#5d3f94" stroke-width="2"/>
+    
+    <!-- HTML tags in soup -->
+    <text x="25" y="52" font-family="monospace" font-size="8" fill="white">&lt;html&gt;</text>
+    <text x="55" y="60" font-family="monospace" font-size="8" fill="white">&lt;body&gt;</text>
+    <text x="30" y="68" font-family="monospace" font-size="8" fill="white">&lt;div&gt;</text>
+    
+    <!-- Steam -->
+    <g filter="url(#steam)">
+      <path d="M 30,35 C 35,25 25,20 30,15" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+      <path d="M 50,35 C 55,25 45,20 50,15" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+      <path d="M 70,35 C 75,25 65,20 70,15" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+    </g>
+    
+    <!-- Spoon -->
+    <path d="M 75,50 L 95,30 C 100,25 95,20 90,25 L 70,45" fill="#d9d9d9" stroke="#a0a0a0" stroke-width="1"/>
+  </g>
+</svg> 

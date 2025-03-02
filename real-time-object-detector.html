@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Object Detector - AI Agent Projects Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for project detail page */
+        .project-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/object-detector-bg.svg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .project-header .tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .project-header .tags span {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0 5px 10px;
+        }
+        
+        .project-content {
+            padding: 80px 0;
+        }
+        
+        .project-section {
+            margin-bottom: 60px;
+        }
+        
+        .project-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .project-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .project-image-full {
+            margin: 30px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-image-full img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+        }
+        
+        .project-nav a {
+            display: flex;
+            align-items: center;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .project-nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .project-nav a i {
+            margin: 0 10px;
+        }
+        
+        /* Code block styling */
+        pre {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        
+        code {
+            font-family: monospace;
+        }
+
+        /* Project Quick Info */
+        .project-quick-info {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .project-quick-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .info-tags span {
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .project-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .demo-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .demo-link i {
+            margin-right: 8px;
+        }
+
+        .github-link-large {
+            display: inline-flex;
+            align-items: center;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .github-link-large:hover {
+            background: #000;
+            transform: translateY(-3px);
+        }
+
+        .github-link-large i {
+            margin-right: 8px;
+        }
+
+        /* Additional styles for enhanced design */
+        .implementation-details {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .implementation-details h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .results-section {
+            position: relative;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .result-card {
+            display: flex;
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .result-icon {
+            margin-right: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+        }
+        
+        .result-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .enhancement-timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 30px;
+        }
+        
+        .enhancement-timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 0 4px white;
+        }
+        
+        .timeline-content {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .result-card {
+                flex-direction: column;
+            }
+            
+            .result-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .enhancement-timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 20px;
+            }
+            
+            .timeline-icon {
+                left: -38px;
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* New styles for redesigned sections */
+        .project-overview {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-overview h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-overview h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .overview-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .key-features h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .feature-text {
+            font-weight: 500;
+        }
+        
+        .overview-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .overview-actions .demo-link {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        /* Execution steps styling */
+        .execution-steps {
+            margin-top: 40px;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 25px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background: var(--primary-color);
+            opacity: 0.3;
+        }
+        
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            min-width: 50px;
+            height: 50px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>AI<span>Agents</span></h1>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#projects" class="active">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="project-header">
+        <div class="container">
+            <h1>Real-Time Object Detector</h1>
+            <div class="tags">
+                <span>Computer Vision</span>
+                <span>Machine Learning</span>
+                <span>Real-time Processing</span>
+            </div>
+            <p>An advanced AI system that identifies and tracks objects in real-time video streams with high accuracy and minimal latency</p>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <!-- Redesigned Project Overview Section -->
+            <div class="project-overview">
+                <h2>Project Overview</h2>
+                <div class="overview-content">
+                    <p>In this project, we developed an AI-powered object detection system capable of identifying and tracking multiple objects in real-time video streams. Our solution combines state-of-the-art computer vision algorithms with optimized processing techniques to achieve high accuracy while maintaining minimal latency.</p>
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="feature-text">Real-Time Detection</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-crosshairs"></i>
+                                </div>
+                                <div class="feature-text">Multi-Object Tracking</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="feature-text">Low-Latency Processing</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="feature-text">Mobile-Compatible</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-sync"></i>
+                                </div>
+                                <div class="feature-text">Continuous Learning</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview-actions">
+                        <a href="#" class="demo-link"><i class="fas fa-play-circle"></i> See the Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>Motivation</h2>
+                <p>Real-time object detection presents significant challenges in computer vision, particularly when balancing accuracy with processing speed. Traditional approaches often sacrifice one for the other, resulting in systems that are either too slow for real-time applications or too inaccurate for practical use.</p>
+                
+                <p>Our project addresses this challenge by implementing an optimized architecture that leverages both hardware acceleration and efficient algorithms to achieve high-performance object detection suitable for applications ranging from autonomous vehicles to security systems and augmented reality.</p>
+                
+                <div class="project-image-full">
+                    <img src="images/object-detector-bg.svg" alt="Real-Time Object Detector Overview">
+                </div>
+            </div>
+            
+            <!-- Redesigned Project Execution Section -->
+            <div class="project-section">
+                <h2>Project Execution</h2>
+                <p>Our approach combines several cutting-edge techniques to achieve real-time object detection with high accuracy:</p>
+                
+                <div class="execution-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Model Architecture</h3>
+                            <p>We implemented a lightweight neural network architecture optimized for speed while maintaining detection accuracy across a wide range of object classes.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Hardware Acceleration</h3>
+                            <p>The system leverages GPU acceleration and model quantization techniques to maximize processing speed on both desktop and mobile platforms.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Multi-Object Tracking</h3>
+                            <p>We implemented an efficient tracking algorithm that maintains object identity across video frames, enabling consistent tracking even during occlusions or rapid movement.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Continuous Learning</h3>
+                            <p>The system incorporates online learning capabilities, allowing it to adapt to new environments and improve detection accuracy over time through usage.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Technical Implementation</h2>
+                <p>The core of our object detection system is built on a modified version of the YOLO (You Only Look Once) architecture, optimized for real-time performance:</p>
+                
+                <div class="implementation-details">
+                    <h3>Detection Pipeline</h3>
+                    <p>Our implementation uses a single-pass detection approach that processes the entire image in one forward pass through the neural network, significantly reducing computational overhead compared to multi-stage detectors.</p>
+                    
+                    <pre><code>
+# Example configuration for our optimized detection pipeline
+detection_config = {
+    'model': 'tiny_yolo_v4',
+    'confidence_threshold': 0.5,
+    'nms_threshold': 0.4,
+    'input_size': (416, 416),
+    'use_gpu': True,
+    'quantized': True,
+    'tracking_enabled': True,
+    'max_objects': 50
+}
+                    </code></pre>
+                    
+                    <p>The system processes video frames at up to 60 FPS on modern GPUs while maintaining detection accuracy comparable to much slower models. This is achieved through careful optimization of the network architecture and inference pipeline.</p>
+                </div>
+            </div>
+            
+            <div class="project-section results-section">
+                <h2>Results</h2>
+                <p>Our Real-Time Object Detector achieves impressive performance across a range of metrics and use cases:</p>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Processing Speed</h3>
+                            <p>Achieves 30-60 FPS on desktop GPUs and 15-25 FPS on modern mobile devices, enabling true real-time applications.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Detection Accuracy</h3>
+                            <p>Maintains 85-92% mAP (mean Average Precision) across common object classes while operating at real-time speeds.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Energy Efficiency</h3>
+                            <p>Optimized for low power consumption, enabling extended operation on battery-powered devices without excessive drain.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-image-full">
+                    <img src="images/object-detector-bg.svg" alt="Real-Time Object Detector Results Visualization">
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Future Enhancements</h2>
+                <p>We're actively working on several enhancements to further improve the system's capabilities:</p>
+                
+                <div class="enhancement-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Edge AI Optimization</h3>
+                            <p>Further optimizing the model for deployment on edge devices with limited computational resources, including specialized AI accelerators.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>3D Object Detection</h3>
+                            <p>Extending the system to perform 3D object detection and localization using depth information from stereo cameras or LiDAR sensors.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Federated Learning</h3>
+                            <p>Implementing privacy-preserving federated learning to improve model accuracy across distributed devices without sharing sensitive data.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Behavior Analysis</h3>
+                            <p>Adding higher-level behavior analysis capabilities to detect complex activities and interactions between objects in the scene.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Technology Stack</h2>
+                <p>This project leverages a carefully selected stack of technologies:</p>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <img src="images/python-logo.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tensorflow-logo.svg" alt="TensorFlow">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/opencv-logo.svg" alt="OpenCV">
+                        <span>OpenCV</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/cuda-logo.svg" alt="CUDA">
+                        <span>CUDA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-nav">
+                <a href="intelligent-web-harvester.html"><i class="fas fa-arrow-left"></i> Intelligent Web Harvester</a>
+                <a href="index.html#projects">All Projects</a>
+                <a href="visual-content-analyzer.html">Visual Content Analyzer <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>AI<span>Agents</span></h2>
+                    <p>Exploring the frontier of artificial intelligence</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-medium"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AI Agents Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

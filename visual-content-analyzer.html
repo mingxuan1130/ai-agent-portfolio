@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Content Analyzer - AI Agent Projects Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for project detail page */
+        .project-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/visual-analyzer-bg.svg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .project-header .tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .project-header .tags span {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0 5px 10px;
+        }
+        
+        .project-content {
+            padding: 80px 0;
+        }
+        
+        .project-section {
+            margin-bottom: 60px;
+        }
+        
+        .project-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .project-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .project-image-full {
+            margin: 30px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-image-full img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+        }
+        
+        .project-nav a {
+            display: flex;
+            align-items: center;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .project-nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .project-nav a i {
+            margin: 0 10px;
+        }
+        
+        /* Code block styling */
+        pre {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        
+        code {
+            font-family: monospace;
+        }
+
+        /* Project Quick Info */
+        .project-quick-info {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .project-quick-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .info-tags span {
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .project-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .demo-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .demo-link i {
+            margin-right: 8px;
+        }
+
+        .github-link-large {
+            display: inline-flex;
+            align-items: center;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .github-link-large:hover {
+            background: #000;
+            transform: translateY(-3px);
+        }
+
+        .github-link-large i {
+            margin-right: 8px;
+        }
+
+        /* Additional styles for enhanced design */
+        .implementation-details {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .implementation-details h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .results-section {
+            position: relative;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .result-card {
+            display: flex;
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .result-icon {
+            margin-right: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+        }
+        
+        .result-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .enhancement-timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 30px;
+        }
+        
+        .enhancement-timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 0 4px white;
+        }
+        
+        .timeline-content {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .result-card {
+                flex-direction: column;
+            }
+            
+            .result-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .enhancement-timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 20px;
+            }
+            
+            .timeline-icon {
+                left: -38px;
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* New styles for redesigned sections */
+        .project-overview {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-overview h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-overview h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .overview-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .key-features h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .feature-text {
+            font-weight: 500;
+        }
+        
+        .overview-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .overview-actions .demo-link {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        /* Execution steps styling */
+        .execution-steps {
+            margin-top: 40px;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 25px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background: var(--primary-color);
+            opacity: 0.3;
+        }
+        
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            min-width: 50px;
+            height: 50px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>AI<span>Agents</span></h1>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#projects" class="active">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="project-header">
+        <div class="container">
+            <h1>Visual Content Analyzer</h1>
+            <div class="tags">
+                <span>Image Processing</span>
+                <span>Deep Learning</span>
+                <span>Content Analysis</span>
+            </div>
+            <p>An AI agent that performs detailed analysis of images, extracting context, objects, text, and sentiment to provide comprehensive insights</p>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <!-- Redesigned Project Overview Section -->
+            <div class="project-overview">
+                <h2>Project Overview</h2>
+                <div class="overview-content">
+                    <p>In this project, we developed an advanced AI system that performs comprehensive analysis of visual content, extracting meaningful insights from images. Our solution combines multiple computer vision techniques to identify objects, extract text, analyze sentiment, and provide contextual understanding of visual media.</p>
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="feature-text">Object Recognition</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="feature-text">Text Extraction (OCR)</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                <div class="feature-text">Sentiment Analysis</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tags"></i>
+                                </div>
+                                <div class="feature-text">Automatic Tagging</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="feature-text">Visual Data Insights</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview-actions">
+                        <a href="#" class="demo-link"><i class="fas fa-play-circle"></i> See the Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>Motivation</h2>
+                <p>The exponential growth of visual content across digital platforms has created a need for automated systems that can extract meaningful insights from images at scale. Traditional approaches often focus on single aspects of image analysis, such as object detection or text recognition, but lack the comprehensive understanding needed for many applications.</p>
+                
+                <p>Our Visual Content Analyzer addresses this challenge by integrating multiple analysis techniques into a unified system, enabling a holistic understanding of visual content that can be applied to fields ranging from content moderation and market research to accessibility and data mining.</p>
+                
+                <div class="project-image-full">
+                    <img src="images/visual-analyzer-bg.svg" alt="Visual Content Analyzer Overview">
+                </div>
+            </div>
+            
+            <!-- Redesigned Project Execution Section -->
+            <div class="project-section">
+                <h2>Project Execution</h2>
+                <p>Our approach integrates several specialized modules to provide comprehensive image analysis:</p>
+                
+                <div class="execution-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Object Detection & Recognition</h3>
+                            <p>We implemented a state-of-the-art object detection system capable of identifying thousands of common objects with high precision, including their location and relationships within the image.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Text Extraction & Analysis</h3>
+                            <p>Our OCR module identifies and extracts text from images, even when embedded in complex backgrounds or presented in challenging orientations and fonts.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Sentiment & Emotion Analysis</h3>
+                            <p>The system analyzes facial expressions, color schemes, and compositional elements to determine the emotional tone and sentiment conveyed by the image.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Contextual Understanding</h3>
+                            <p>By combining insights from all modules, our system generates a comprehensive understanding of the image's content, context, and meaning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Technical Implementation</h2>
+                <p>The Visual Content Analyzer is built on a modular architecture that integrates multiple specialized neural networks:</p>
+                
+                <div class="implementation-details">
+                    <h3>Multi-Modal Analysis Pipeline</h3>
+                    <p>Our system processes images through parallel analysis streams, each specialized for different aspects of visual content:</p>
+                    
+                    <pre><code>
+# Example of our multi-modal analysis pipeline
+def analyze_image(image_path):
+    # Load and preprocess image
+    image = load_image(image_path)
+    
+    # Run parallel analysis modules
+    object_results = object_detection_module.detect(image)
+    text_results = ocr_module.extract_text(image)
+    sentiment_results = sentiment_module.analyze(image)
+    scene_results = scene_understanding_module.classify(image)
+    
+    # Integrate results for contextual understanding
+    integrated_analysis = context_integration_module.combine_insights(
+        object_results,
+        text_results,
+        sentiment_results,
+        scene_results
+    )
+    
+    return integrated_analysis
+                    </code></pre>
+                    
+                    <p>This modular approach allows us to continuously improve individual components while maintaining the overall system architecture, ensuring the analyzer stays current with the latest advancements in computer vision and deep learning.</p>
+                </div>
+            </div>
+            
+            <div class="project-section results-section">
+                <h2>Results</h2>
+                <p>Our Visual Content Analyzer delivers impressive performance across a range of analysis tasks:</p>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Recognition Accuracy</h3>
+                            <p>Achieves 94% accuracy in object recognition across a diverse dataset of common objects and scenes, outperforming many specialized systems.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Text Extraction</h3>
+                            <p>Successfully extracts text with 89% character-level accuracy even from challenging images with complex backgrounds and varied typography.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Contextual Understanding</h3>
+                            <p>Provides relevant contextual analysis for 85% of tested images, correctly identifying the primary subject and meaningful relationships.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-image-full">
+                    <img src="images/visual-analyzer-bg.svg" alt="Visual Content Analyzer Results Visualization">
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Future Enhancements</h2>
+                <p>We're actively developing several enhancements to further improve the system's capabilities:</p>
+                
+                <div class="enhancement-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Video Analysis</h3>
+                            <p>Extending the system to analyze video content, tracking objects and context across frames while maintaining temporal coherence.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Multilingual Support</h3>
+                            <p>Enhancing the OCR and text analysis capabilities to support a wider range of languages and writing systems.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Artistic Style Analysis</h3>
+                            <p>Adding capabilities to recognize and classify artistic styles, techniques, and influences in visual content.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Privacy-Preserving Analysis</h3>
+                            <p>Implementing techniques for analyzing visual content while respecting privacy concerns, such as automatic face blurring and personal information redaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Technology Stack</h2>
+                <p>This project leverages a carefully selected stack of technologies:</p>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <img src="images/python-logo.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tensorflow-logo.svg" alt="TensorFlow">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/opencv-logo.svg" alt="OpenCV">
+                        <span>OpenCV</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/pytorch-logo.svg" alt="PyTorch">
+                        <span>PyTorch</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-nav">
+                <a href="real-time-object-detector.html"><i class="fas fa-arrow-left"></i> Real-Time Object Detector</a>
+                <a href="index.html#projects">All Projects</a>
+                <a href="gesture-control-interface.html">Gesture Control Interface <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>AI<span>Agents</span></h2>
+                    <p>Exploring the frontier of artificial intelligence</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-medium"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AI Agents Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

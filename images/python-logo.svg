@@ -1,0 +1,20 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pyBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#366a96;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3679b0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pyYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe873;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <g>
+    <!-- Blue part -->
+    <path d="M49.5,0C24.3,0,25.9,11.2,25.9,11.2l0,11.6h24.2v3.4H16.3c0,0-16.3-1.8-16.3,24c0,25.8,14.2,24.9,14.2,24.9h8.5V62.5c0,0-0.5-14.2,13.9-14.2h23.9c0,0,13.4,0.2,13.4-13V11.8c0,0,2.7-11.8-24.4-11.8zM36.3,8.3c2.4,0,4.4,2,4.4,4.4c0,2.4-2,4.4-4.4,4.4c-2.4,0-4.4-2-4.4-4.4C31.9,10.2,33.9,8.3,36.3,8.3z" fill="url(#pyBlue)"/>
+    
+    <!-- Yellow part -->
+    <path d="M50.5,100c25.2,0,23.6-11.2,23.6-11.2l0-11.6H49.9v-3.4h33.8c0,0,16.3,1.8,16.3-24c0-25.8-14.2-24.9-14.2-24.9h-8.5v12.6c0,0,0.5,14.2-13.9,14.2H39.5c0,0-13.4-0.2-13.4,13v23.5c0,0-2.7,11.8,24.4,11.8zM63.7,91.7c-2.4,0-4.4-2-4.4-4.4c0-2.4,2-4.4,4.4-4.4c2.4,0,4.4,2,4.4,4.4C68.1,89.8,66.1,91.7,63.7,91.7z" fill="url(#pyYellow)"/>
+  </g>
+</svg> 

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture Control Interface - AI Agent Projects Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for project detail page */
+        .project-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/gesture-control-bg.svg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .project-header .tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .project-header .tags span {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0 5px 10px;
+        }
+        
+        .project-content {
+            padding: 80px 0;
+        }
+        
+        .project-section {
+            margin-bottom: 60px;
+        }
+        
+        .project-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .project-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .project-image-full {
+            margin: 30px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-image-full img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+        }
+        
+        .project-nav a {
+            display: flex;
+            align-items: center;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .project-nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .project-nav a i {
+            margin: 0 10px;
+        }
+        
+        /* Code block styling */
+        pre {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        
+        code {
+            font-family: monospace;
+        }
+
+        /* Project Quick Info */
+        .project-quick-info {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .project-quick-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .info-tags span {
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .project-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .demo-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .demo-link i {
+            margin-right: 8px;
+        }
+
+        .github-link-large {
+            display: inline-flex;
+            align-items: center;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .github-link-large:hover {
+            background: #000;
+            transform: translateY(-3px);
+        }
+
+        .github-link-large i {
+            margin-right: 8px;
+        }
+
+        /* Additional styles for enhanced design */
+        .implementation-details {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .implementation-details h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .results-section {
+            position: relative;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .result-card {
+            display: flex;
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .result-icon {
+            margin-right: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+        }
+        
+        .result-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .enhancement-timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 30px;
+        }
+        
+        .enhancement-timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 0 4px white;
+        }
+        
+        .timeline-content {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .result-card {
+                flex-direction: column;
+            }
+            
+            .result-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .enhancement-timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 20px;
+            }
+            
+            .timeline-icon {
+                left: -38px;
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* New styles for redesigned sections */
+        .project-overview {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-overview h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-overview h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .overview-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .key-features h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .feature-text {
+            font-weight: 500;
+        }
+        
+        .overview-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .overview-actions .demo-link {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        /* Execution steps styling */
+        .execution-steps {
+            margin-top: 40px;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 25px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background: var(--primary-color);
+            opacity: 0.3;
+        }
+        
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            min-width: 50px;
+            height: 50px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>AI<span>Agents</span></h1>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#projects" class="active">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="project-header">
+        <div class="container">
+            <h1>Gesture Control Interface</h1>
+            <div class="tags">
+                <span>Computer Vision</span>
+                <span>Human-Computer Interaction</span>
+                <span>Real-time Processing</span>
+            </div>
+            <p>An AI-powered system that enables intuitive control of digital interfaces through hand gestures and movements</p>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <!-- Redesigned Project Overview Section -->
+            <div class="project-overview">
+                <h2>Project Overview</h2>
+                <div class="overview-content">
+                    <p>The Gesture Control Interface is an innovative system that allows users to interact with digital devices through natural hand movements and gestures. By leveraging computer vision and machine learning, our solution creates a touchless interface that can be used to control computers, smart TVs, presentation software, and other digital systems.</p>
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-hand-paper"></i>
+                                </div>
+                                <div class="feature-text">Multi-Gesture Recognition</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <div class="feature-text">Low Latency Response</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                                <div class="feature-text">User Calibration</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div class="feature-text">Cross-Platform Support</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="feature-text">Adaptive Learning</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview-actions">
+                        <a href="#" class="demo-link"><i class="fas fa-play-circle"></i> See the Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>Motivation</h2>
+                <p>Traditional input methods like keyboards, mice, and touchscreens have limitations in certain contexts. For users with mobility impairments, in sterile environments like operating rooms, or in public spaces where touching shared surfaces poses hygiene concerns, touchless interfaces offer significant advantages.</p>
+                
+                <p>Our Gesture Control Interface addresses these challenges by creating a natural, intuitive way to interact with technology without physical contact. By translating hand movements into digital commands, we're making technology more accessible and adaptable to diverse user needs and environments.</p>
+                
+                <div class="project-image-full">
+                    <img src="images/gesture-control-bg.svg" alt="Gesture Control Interface Overview">
+                </div>
+            </div>
+            
+            <!-- Redesigned Project Execution Section -->
+            <div class="project-section">
+                <h2>Project Execution</h2>
+                <p>Our approach to creating an effective gesture control system involved several key components:</p>
+                
+                <div class="execution-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Hand Detection & Tracking</h3>
+                            <p>We implemented a real-time hand detection system that can identify and track hand positions with high precision, even in varying lighting conditions and against complex backgrounds.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Gesture Recognition</h3>
+                            <p>Our system recognizes a vocabulary of gestures, from simple movements like swipes and pinches to more complex gestures like rotations and multi-finger commands.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Command Mapping</h3>
+                            <p>We developed a flexible mapping system that translates recognized gestures into specific commands for different applications, allowing for customizable control schemes.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Feedback Mechanisms</h3>
+                            <p>To enhance usability, we incorporated visual and audio feedback that confirms gesture recognition and provides guidance on available commands.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Technical Implementation</h2>
+                <p>The Gesture Control Interface is built on a sophisticated technical foundation that enables accurate, responsive gesture recognition:</p>
+                
+                <div class="implementation-details">
+                    <h3>Hand Pose Estimation</h3>
+                    <p>At the core of our system is a deep learning model for hand pose estimation that identifies 21 key points on the hand:</p>
+                    
+                    <pre><code>
+# Example of our hand landmark detection implementation
+def detect_hand_landmarks(frame):
+    # Convert frame to RGB for MediaPipe processing
+    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    
+    # Process the frame with MediaPipe Hands
+    results = hands.process(rgb_frame)
+    
+    landmarks = []
+    if results.multi_hand_landmarks:
+        for hand_landmarks in results.multi_hand_landmarks:
+            # Extract the 21 hand landmarks
+            for point in hand_landmarks.landmark:
+                # Convert normalized coordinates to pixel coordinates
+                x, y = int(point.x * frame.shape[1]), int(point.y * frame.shape[0])
+                landmarks.append((x, y))
+                
+            # Draw landmarks on the frame for visualization
+            mp_drawing.draw_landmarks(
+                frame, 
+                hand_landmarks, 
+                mp_hands.HAND_CONNECTIONS
+            )
+    
+    return frame, landmarks
+                    </code></pre>
+                    
+                    <p>This landmark detection forms the foundation for our gesture recognition system, allowing us to track fine hand movements and identify specific gestures based on the spatial relationships between key points.</p>
+                </div>
+            </div>
+            
+            <div class="project-section results-section">
+                <h2>Results</h2>
+                <p>Our Gesture Control Interface has achieved impressive performance metrics that make it suitable for real-world applications:</p>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Response Time</h3>
+                            <p>Achieves an average response time of under 50ms from gesture to action, creating a fluid and natural interaction experience.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Recognition Accuracy</h3>
+                            <p>Maintains 95% gesture recognition accuracy across different users and environmental conditions after minimal calibration.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Adaptability</h3>
+                            <p>Successfully integrates with multiple platforms and applications, demonstrating versatility across use cases.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-image-full">
+                    <img src="images/gesture-control-bg.svg" alt="Gesture Control Interface Results Visualization">
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Future Enhancements</h2>
+                <p>We're actively working on several enhancements to further improve the system's capabilities:</p>
+                
+                <div class="enhancement-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Multi-User Support</h3>
+                            <p>Enabling the system to track and respond to multiple users simultaneously, with personalized gesture profiles for each user.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>AR/VR Integration</h3>
+                            <p>Adapting the gesture control system for augmented and virtual reality environments to enable more immersive interactions.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Sign Language Recognition</h3>
+                            <p>Expanding the system to recognize sign language gestures, creating new accessibility options for deaf and hard-of-hearing users.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Mobile Optimization</h3>
+                            <p>Optimizing the system for mobile devices to enable gesture control on smartphones and tablets with minimal battery impact.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Technology Stack</h2>
+                <p>This project leverages a carefully selected stack of technologies:</p>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <img src="images/python-logo.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tensorflow-logo.svg" alt="TensorFlow">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/opencv-logo.svg" alt="OpenCV">
+                        <span>OpenCV</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/pytorch-logo.svg" alt="PyTorch">
+                        <span>MediaPipe</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-nav">
+                <a href="visual-content-analyzer.html"><i class="fas fa-arrow-left"></i> Visual Content Analyzer</a>
+                <a href="index.html#projects">All Projects</a>
+                <a href="workflow-automation-assistant.html">Workflow Automation Assistant <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>AI<span>Agents</span></h2>
+                    <p>Exploring the frontier of artificial intelligence</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-medium"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AI Agents Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

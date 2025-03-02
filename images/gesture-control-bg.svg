@@ -1,0 +1,82 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a085;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0e6251;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background with teal gradient -->
+  <rect width="1200" height="600" fill="url(#tealGradient)"/>
+  
+  <!-- Hand outline -->
+  <g opacity="0.2">
+    <path d="M 600,350 
+             C 580,320 570,300 570,280 
+             C 570,260 580,250 590,250 
+             C 600,250 605,260 605,270 
+             L 605,230 
+             C 605,220 610,210 620,210 
+             C 630,210 635,220 635,230 
+             L 635,210 
+             C 635,200 640,190 650,190 
+             C 660,190 665,200 665,210 
+             L 665,200 
+             C 665,190 670,180 680,180 
+             C 690,180 695,190 695,200 
+             L 695,240 
+             C 695,240 700,230 710,230 
+             C 720,230 725,240 725,250 
+             C 725,280 710,320 690,350 
+             C 670,380 650,400 600,350 Z" 
+          stroke="white" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Finger tracking points -->
+  <g opacity="0.3">
+    <circle cx="590" cy="250" r="5" fill="white"/>
+    <circle cx="620" cy="210" r="5" fill="white"/>
+    <circle cx="650" cy="190" r="5" fill="white"/>
+    <circle cx="680" cy="180" r="5" fill="white"/>
+    <circle cx="710" cy="230" r="5" fill="white"/>
+    
+    <!-- Finger joints -->
+    <circle cx="605" cy="270" r="3" fill="white"/>
+    <circle cx="635" cy="230" r="3" fill="white"/>
+    <circle cx="665" cy="210" r="3" fill="white"/>
+    <circle cx="695" cy="200" r="3" fill="white"/>
+    <circle cx="690" cy="350" r="3" fill="white"/>
+  </g>
+  
+  <!-- Motion trails -->
+  <g opacity="0.15">
+    <path d="M 590,250 C 580,240 570,230 560,220" stroke="white" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+    <path d="M 620,210 C 610,200 600,190 590,180" stroke="white" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+    <path d="M 650,190 C 640,180 630,170 620,160" stroke="white" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+    <path d="M 680,180 C 670,170 660,160 650,150" stroke="white" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+    <path d="M 710,230 C 720,220 730,210 740,200" stroke="white" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+  </g>
+  
+  <!-- Interface elements -->
+  <g opacity="0.2">
+    <rect x="300" y="150" width="200" height="100" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="350" y="200" fill="white" font-family="Arial" font-size="14">Volume Control</text>
+    
+    <rect x="700" y="150" width="200" height="100" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="750" y="200" fill="white" font-family="Arial" font-size="14">Navigation</text>
+    
+    <rect x="300" y="400" width="200" height="100" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="350" y="450" fill="white" font-family="Arial" font-size="14">Media Control</text>
+    
+    <rect x="700" y="400" width="200" height="100" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="750" y="450" fill="white" font-family="Arial" font-size="14">Zoom Control</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g opacity="0.1">
+    <line x1="500" y1="200" x2="590" y2="250" stroke="white" stroke-width="1.5" stroke-dasharray="5,5"/>
+    <line x1="700" y1="200" x2="650" y2="190" stroke="white" stroke-width="1.5" stroke-dasharray="5,5"/>
+    <line x1="500" y1="450" x2="680" y2="180" stroke="white" stroke-width="1.5" stroke-dasharray="5,5"/>
+    <line x1="700" y1="450" x2="710" y2="230" stroke="white" stroke-width="1.5" stroke-dasharray="5,5"/>
+  </g>
+</svg> 

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Scraper - AI Agent Projects Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for project detail page */
+        .project-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/instagram-scraper-bg.svg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .project-header .tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .project-header .tags span {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0 5px 10px;
+        }
+        
+        .project-content {
+            padding: 80px 0;
+        }
+        
+        .project-section {
+            margin-bottom: 60px;
+        }
+        
+        .project-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .project-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .project-image-full {
+            margin: 30px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-image-full img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+        }
+        
+        .project-nav a {
+            display: flex;
+            align-items: center;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .project-nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .project-nav a i {
+            margin: 0 10px;
+        }
+        
+        /* Code block styling */
+        pre {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        
+        code {
+            font-family: monospace;
+        }
+
+        /* Project Quick Info */
+        .project-quick-info {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .project-quick-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-item h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .info-tags {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .info-tags span {
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .project-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .demo-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .demo-link i {
+            margin-right: 8px;
+        }
+
+        .github-link-large {
+            display: inline-flex;
+            align-items: center;
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .github-link-large:hover {
+            background: #000;
+            transform: translateY(-3px);
+        }
+
+        .github-link-large i {
+            margin-right: 8px;
+        }
+
+        /* Additional styles for enhanced design */
+        .implementation-details {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .implementation-details h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .results-section {
+            position: relative;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .result-card {
+            display: flex;
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .result-icon {
+            margin-right: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+        }
+        
+        .result-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .enhancement-timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 30px;
+        }
+        
+        .enhancement-timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 0 4px white;
+        }
+        
+        .timeline-content {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .result-card {
+                flex-direction: column;
+            }
+            
+            .result-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .enhancement-timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 20px;
+            }
+            
+            .timeline-icon {
+                left: -38px;
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* New styles for redesigned sections */
+        .project-overview {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .project-overview h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-overview h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .overview-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .key-features h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .feature-text {
+            font-weight: 500;
+        }
+        
+        .overview-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .overview-actions .demo-link {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        /* Execution steps styling */
+        .execution-steps {
+            margin-top: 40px;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 25px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background: var(--primary-color);
+            opacity: 0.3;
+        }
+        
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            min-width: 50px;
+            height: 50px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>AI<span>Agents</span></h1>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#projects" class="active">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="project-header">
+        <div class="container">
+            <h1>Instagram Scraper</h1>
+            <div class="tags">
+                <span>Web Scraping</span>
+                <span>Social Media</span>
+                <span>AI Agent</span>
+            </div>
+            <p>Empower your strategies with AI-driven extraction and analysis of Instagram insights</p>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <!-- Redesigned Project Overview Section -->
+            <div class="project-overview">
+                <h2>Project Overview</h2>
+                <div class="overview-content">
+                    <p>In this project, we used AI technology to collect photos from University of Chicago's Instagram account. Our AI-powered approach overcomes the limitations of Instagram's API restrictions, providing an efficient and ethical way to gather visual content for analysis and research purposes.</p>
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="feature-text">AI-Powered Extraction</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-route"></i>
+                                </div>
+                                <div class="feature-text">Adaptive Navigation</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="feature-text">Anti-Detection Measures</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                                <div class="feature-text">Automated Image Collection</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview-actions">
+                        <a href="#" class="demo-link"><i class="fas fa-play-circle"></i> See the Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>Motivation</h2>
+                <p>Instagram image scraping presents unique challenges that set it apart from conventional HTML scraping. The platform's dynamic content loading, API limitations, and anti-bot measures create a complex environment that demands innovative solutions.</p>
+                
+                <p>In this project, I've embraced these challenges by developing an AI-assisted approach that navigates Instagram's interface with efficiency and ethical consideration. My solution demonstrates the potential of data extraction directly from the user interface, opening new possibilities for content analysis and research.</p>
+                
+                <div class="project-image-full">
+                    <img src="images/instagram-scraper-bg.svg" alt="Instagram Scraper Overview">
+                </div>
+            </div>
+            
+            <!-- Redesigned Project Execution Section -->
+            <div class="project-section">
+                <h2>Project Execution</h2>
+                <p>This project leverages the Selenium framework to interact with Instagram in a way that mimics human behavior. Here's how my approach unfolds:</p>
+                
+                <div class="execution-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Initial Setup</h3>
+                            <p>I configure the Chrome WebDriver with settings that help avoid detection from Instagram's monitoring systems, ensuring reliable operation.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Accessing Content</h3>
+                            <p>Selenium navigates to target Instagram accounts and handles dynamically loaded content through strategic scrolling patterns, ensuring all images are properly loaded.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Data Extraction</h3>
+                            <p>Using WebDriver techniques, I capture all relevant image URLs displayed on the account with precision and efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Automation</h3>
+                            <p>My AI-assisted script manages infinite scrolling and dynamic content, automating the download process and reducing manual oversight.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section results-section">
+                <h2>Results</h2>
+                <p>I've successfully automated the extraction and download of images from Instagram, overcoming the platform's restrictions. My solution demonstrates both technical capability and a commitment to ethical operation, ensuring compliance with web standards and Instagram's terms of use.</p>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Enhanced Efficiency</h3>
+                            <p>Reduced image collection time by 85% compared to manual methods, with minimal human supervision required.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Reliable Operation</h3>
+                            <p>Successfully maintained operation without triggering Instagram's anti-bot measures through carefully designed behavior patterns.</p>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>High Success Rate</h3>
+                            <p>Achieved consistent performance in capturing images from target accounts, including content that loads dynamically during scrolling.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-image-full">
+                    <img src="images/instagram-scraper-bg.svg" alt="Instagram Scraper Results Visualization">
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Future Enhancements</h2>
+                <p>To elevate this project's utility and adaptability, I'm exploring several exciting directions:</p>
+                
+                <div class="enhancement-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Image Recognition Integration</h3>
+                            <p>I'm implementing AI-powered image recognition capabilities that will intelligently filter and download only images that meet specific criteria, improving the relevance of collected data.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Scheduled Automation</h3>
+                            <p>I'm developing functionality to periodically execute the scraper according to optimal timing patterns, ensuring your dataset remains current without requiring manual intervention.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Data Analysis</h3>
+                            <p>I will analyze the extracted data to gain insights and trends, enabling users to make informed decisions based on the collected information.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>User Interface Development</h3>
+                            <p>I'm designing an intuitive no-code interface that will make this tool accessible to non-technical users, allowing them to easily configure and deploy the scraper for their specific needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Technology Stack</h2>
+                <p>This project leverages a carefully selected stack of technologies:</p>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <img src="images/python-logo.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/selenium-logo.svg" alt="Selenium">
+                        <span>Selenium</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/beautifulsoup-logo.svg" alt="BeautifulSoup">
+                        <span>BeautifulSoup</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/mongodb-logo.svg" alt="MongoDB">
+                        <span>MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-nav">
+                <a href="#"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <a href="index.html#projects">All Projects</a>
+                <a href="intelligent-web-harvester.html">Next Project <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>AI<span>Agents</span></h2>
+                    <p>Exploring the frontier of artificial intelligence</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-medium"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AI Agents Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
+ 

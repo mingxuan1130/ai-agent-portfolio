@@ -1,0 +1,90 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e67e22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#873600;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background with orange gradient -->
+  <rect width="1200" height="600" fill="url(#orangeGradient)"/>
+  
+  <!-- Workflow diagram -->
+  <g opacity="0.2">
+    <!-- Nodes -->
+    <rect x="200" y="250" width="120" height="60" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="230" y="285" fill="white" font-family="Arial" font-size="14">Input</text>
+    
+    <rect x="400" y="150" width="120" height="60" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="420" y="185" fill="white" font-family="Arial" font-size="14">Process A</text>
+    
+    <rect x="400" y="350" width="120" height="60" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="420" y="385" fill="white" font-family="Arial" font-size="14">Process B</text>
+    
+    <rect x="600" y="250" width="120" height="60" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="615" y="285" fill="white" font-family="Arial" font-size="14">Decision</text>
+    
+    <rect x="800" y="150" width="120" height="60" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="820" y="185" fill="white" font-family="Arial" font-size="14">Output X</text>
+    
+    <rect x="800" y="350" width="120" height="60" rx="10" stroke="white" stroke-width="2" fill="none"/>
+    <text x="820" y="385" fill="white" font-family="Arial" font-size="14">Output Y</text>
+    
+    <!-- Connections -->
+    <line x1="320" y1="280" x2="400" y2="180" stroke="white" stroke-width="1.5"/>
+    <line x1="320" y1="280" x2="400" y2="380" stroke="white" stroke-width="1.5"/>
+    <line x1="520" y1="180" x2="600" y2="250" stroke="white" stroke-width="1.5"/>
+    <line x1="520" y1="380" x2="600" y2="310" stroke="white" stroke-width="1.5"/>
+    <line x1="720" y1="250" x2="800" y2="180" stroke="white" stroke-width="1.5"/>
+    <line x1="720" y1="310" x2="800" y2="380" stroke="white" stroke-width="1.5"/>
+    
+    <!-- Flow arrows -->
+    <polygon points="395,175 405,185 390,190" fill="white"/>
+    <polygon points="395,375 405,385 390,390" fill="white"/>
+    <polygon points="595,245 605,255 590,260" fill="white"/>
+    <polygon points="595,305 605,315 590,320" fill="white"/>
+    <polygon points="795,175 805,185 790,190" fill="white"/>
+    <polygon points="795,375 805,385 790,390" fill="white"/>
+  </g>
+  
+  <!-- Automation gears -->
+  <g opacity="0.15">
+    <path d="M 300,150 
+             L 305,135 L 315,135 L 320,150 
+             L 335,155 L 345,145 L 340,130 
+             L 350,120 L 365,125 L 370,140 
+             L 385,145 L 395,135 L 390,120 
+             L 400,110 L 415,115 L 420,130 
+             L 435,135 L 445,125 L 440,110 
+             L 450,100 L 465,105 L 470,120 
+             L 485,125 L 495,115 L 490,100 
+             L 500,90 L 515,95 L 520,110 
+             L 535,115 L 545,105 L 540,90 
+             L 550,80 L 565,85 L 570,100 
+             L 585,105 L 595,95 L 590,80 
+             L 600,70 L 615,75 L 620,90 
+             L 635,95 L 645,85 L 640,70 
+             L 650,60 L 665,65 L 670,80 
+             L 685,85 L 695,75 L 690,60 
+             L 700,50 L 715,55 L 720,70 
+             L 735,75 L 745,65 L 740,50 
+             L 750,40 L 765,45 L 770,60 
+             L 785,65 L 795,55 L 790,40 
+             L 800,30 L 815,35 L 820,50 
+             L 835,55 L 845,45 L 840,30 
+             L 850,20 L 865,25 L 870,40 
+             L 885,45 L 895,35 L 890,20 
+             L 900,10 L 915,15 L 920,30 
+             L 935,35 L 945,25 L 940,10 
+             L 950,0 L 965,5 L 970,20 
+             L 985,25 L 995,15 L 990,0" 
+          stroke="white" stroke-width="1" fill="none"/>
+  </g>
+  
+  <!-- Data flow -->
+  <g opacity="0.1">
+    <path d="M 100,500 C 300,450 500,550 700,450 S 900,550 1100,450" stroke="white" stroke-width="3" fill="none"/>
+    <path d="M 100,520 C 300,470 500,570 700,470 S 900,570 1100,470" stroke="white" stroke-width="2" fill="none"/>
+    <path d="M 100,540 C 300,490 500,590 700,490 S 900,590 1100,490" stroke="white" stroke-width="1" fill="none"/>
+  </g>
+</svg> 
