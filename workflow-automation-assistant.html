@@ -187,52 +187,68 @@
             padding-left: 30px;
         }
         
-        .enhancement-timeline::before {
+        .enhancement-timeline:before {
             content: '';
             position: absolute;
-            top: 0;
             left: 0;
-            width: 3px;
+            top: 0;
             height: 100%;
+            width: 4px;
             background: var(--primary-color);
-            border-radius: 3px;
+            border-radius: 2px;
         }
         
         .timeline-item {
             position: relative;
-            padding-bottom: 30px;
+            padding-bottom: 40px;
+            padding-left: 30px;
         }
         
         .timeline-item:last-child {
             padding-bottom: 0;
         }
         
-        .timeline-item::before {
-            content: '';
+        .timeline-icon {
             position: absolute;
+            left: -48px;
             top: 0;
-            left: -30px;
-            width: 15px;
-            height: 15px;
+            width: 40px;
+            height: 40px;
+            background: #6c63ff; /* Exact blue color from the image */
             border-radius: 50%;
-            background: var(--primary-color);
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 3px var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            overflow: hidden; /* Ensure content doesn't overflow the circle */
+            border: none; /* Remove any border */
         }
         
-        .timeline-date {
-            font-weight: 600;
+        .timeline-icon i {
+            font-size: 1.2rem;
+            color: white; /* Ensure icon is white */
+            z-index: 2; /* Ensure icon is above any background */
+            background: transparent; /* Ensure icon background is transparent */
+        }
+        
+        /* Remove any background elements from timeline icons */
+        .timeline-icon::before,
+        .timeline-icon::after {
+            display: none !important;
+            content: none !important;
+        }
+        
+        .timeline-content {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 15px;
             color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .timeline-content h4 {
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-        
-        .timeline-content p {
-            margin-bottom: 0;
         }
         
         .tech-stack {
@@ -379,6 +395,154 @@
                 justify-content: center;
             }
         }
+        
+        /* Execution steps styling - updated to match real-time-object-detector.html */
+        .execution-steps {
+            margin-top: 40px;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 25px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background: var(--primary-color);
+            opacity: 0.3;
+        }
+        
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            min-width: 50px;
+            height: 50px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        /* Results section styling - updated to match real-time-object-detector.html */
+        .results-section {
+            position: relative;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .result-card {
+            display: flex;
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .result-icon {
+            margin-right: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+        }
+        
+        .result-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        /* Enhancement timeline section - update the icons to match the image */
+        .enhancement-timeline .timeline-item:nth-child(1) .timeline-icon i {
+            /* Font Awesome eye icon is already set in HTML */
+        }
+        
+        .enhancement-timeline .timeline-item:nth-child(2) .timeline-icon i {
+            /* Font Awesome database icon is already set in HTML */
+        }
+        
+        .enhancement-timeline .timeline-item:nth-child(3) .timeline-icon i {
+            /* Font Awesome file-alt icon is already set in HTML */
+        }
+        
+        .enhancement-timeline .timeline-item:nth-child(4) .timeline-icon i {
+            /* Font Awesome stream icon is already set in HTML */
+        }
+        
+        .enhancement-timeline .timeline-item:nth-child(5) .timeline-icon i {
+            /* Font Awesome calendar-alt icon is already set in HTML */
+        }
+        
+        @media (max-width: 768px) {
+            .result-card {
+                flex-direction: column;
+            }
+            
+            .result-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .enhancement-timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 20px;
+            }
+            
+            .timeline-icon {
+                left: -38px;
+                width: 30px;
+                height: 30px;
+            }
+            
+            .timeline-icon i {
+                font-size: 0.9rem; /* Slightly smaller icon for mobile */
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -463,10 +627,9 @@
 
             <div class="project-section">
                 <h2>Motivation</h2>
-                <p>Modern businesses rely on an ever-growing ecosystem of specialized software tools, creating information silos and process fragmentation. Employees often spend significant time on repetitive tasks like data entry, file transfers, report generation, and status updates across multiple platforms.</p>
+                <p>Many people struggle with repetitive workflows that need to be followed every week—or even daily. These workflows often involve manual operations across different tools, making it easy to get lost or make mistakes along the way. The constant repetition not only consumes valuable time but also prevents people from focusing on meaningful analysis and decision-making.</p>
                 
-                <p>Traditional automation solutions typically require either extensive coding knowledge or are limited to specific platforms. They often struggle with processes that require contextual understanding or decision-making capabilities. The Workflow Automation Assistant addresses these challenges by providing an intelligent, adaptable solution that can understand context, make decisions based on data, and seamlessly connect different systems without requiring technical expertise from the end user.</p>
-                
+                <p>In this project, we take a common workflow as an example to demonstrate how an AI agent can automate the process, reducing manual effort and freeing up time for more impactful work.</p>
                 <div class="project-image-full">
                     <img src="images/workflow-automation-bg.svg" alt="Workflow Automation Assistant Overview">
                 </div>
@@ -474,208 +637,176 @@
 
             <div class="project-section">
                 <h2>Project Execution</h2>
-                <p>The development of the Workflow Automation Assistant involved several key phases:</p>
+                <p>This project automates a repetitive workflow that traditionally involves multiple manual steps. First, queries are executed to extract data from a database. The retrieved data is then copied into an Excel sheet, which contains built-in VBA code for automated data visualization. Finally, the generated visualizations, along with a brief analysis, are compiled into an email and sent to the relevant recipients. By automating this entire process, the AI agent reduces human effort, minimizes errors, and allows analysts to focus on deeper insights rather than routine tasks.</p>
                 
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-sitemap"></i>
-                        </div>
-                        <div class="feature-text">
-                            <strong>Process Mapping</strong>
-                            <p>Analyzing and mapping common business workflows to identify automation opportunities</p>
+                <div class="execution-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Data Extraction & Retrieval</h3>
+                            <p>The system automatically runs SQL queries to fetch the latest data from the database, eliminating the need for manual query execution.</p>
                         </div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-plug"></i>
-                        </div>
-                        <div class="feature-text">
-                            <strong>Integration Framework</strong>
-                            <p>Building a flexible framework to connect with various applications via APIs, web interfaces, and desktop automation</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <div class="feature-text">
-                            <strong>Workflow Engine</strong>
-                            <p>Developing an intelligent engine to orchestrate multi-step processes with conditional logic and error handling</p>
+                    
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Data Integration & Visualization</h3>
+                            <p>The extracted data is inserted into an Excel file with VBA scripts that generate visual representations, such as charts and highlighted insights, without user intervention.</p>
                         </div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="feature-text">
-                            <strong>AI Decision System</strong>
-                            <p>Implementing machine learning models to make context-aware decisions and adapt to changing conditions</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-cog"></i>
-                        </div>
-                        <div class="feature-text">
-                            <strong>User Interface</strong>
-                            <p>Creating an intuitive interface for workflow configuration, monitoring, and natural language instructions</p>
+                    
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Automated Analysis & Summary</h3>
+                            <p>Key findings are identified based on the visualized data, and a structured summary is generated to highlight trends and anomalies.</p>
                         </div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="feature-text">
-                            <strong>Security Framework</strong>
-                            <p>Establishing robust security protocols for credential management and sensitive data handling</p>
+                    
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Email Drafting & Distribution</h3>
+                            <p>The system compiles the visualizations and insights into an email, attaches the Excel file, and prepares it for distribution to designated recipients.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="project-section">
-                <h2>Technical Implementation</h2>
-                <p>The Workflow Automation Assistant is built on a modular architecture that combines several AI technologies with a robust integration framework:</p>
-                
-                <div class="implementation-details">
-                    <h3>Workflow Definition System</h3>
-                    <p>The core of the assistant is a flexible workflow definition system that allows for the creation of complex process flows with conditional branching, parallel execution, and error handling. Workflows are defined using a combination of natural language instructions and visual configuration.</p>
-                    
-                    <pre>
-# Example of a workflow definition using the declarative syntax
-workflow = WorkflowDefinition(
-    name="Invoice Processing Automation",
-    trigger=ScheduleTrigger(schedule="daily at 9:00 AM"),
-    steps=[
-        {
-            "name": "Download Invoices",
-            "action": "email.fetch_attachments",
-            "parameters": {
-                "folder": "Invoices",
-                "file_type": "pdf",
-                "save_to": "{{workflow.data_folder}}/incoming"
-            }
-        },
-        {
-            "name": "Extract Invoice Data",
-            "action": "document.extract_data",
-            "parameters": {
-                "source": "{{steps.Download Invoices.output_files}}",
-                "extraction_template": "invoice_template"
-            }
-        },
-        {
-            "name": "Validation Decision",
-            "action": "workflow.decision",
-            "parameters": {
-                "condition": "{{steps.Extract Invoice Data.confidence}} >= 0.85"
-            },
-            "on_true": "Process Valid Invoice",
-            "on_false": "Flag for Review"
-        },
-        # Additional steps omitted for brevity
-    ]
-)
-                    </pre>
-                </div>
-                
-                <div class="implementation-details">
-                    <h3>Intelligent Connector System</h3>
-                    <p>The assistant includes a comprehensive connector system that enables integration with various applications and services. Each connector is equipped with AI capabilities to handle authentication, navigation, and data extraction/insertion tasks.</p>
-                    
-                    <pre>
-# Example of the connector system for web application automation
-class WebAppConnector(BaseConnector):
-    def __init__(self, app_config):
-        super().__init__(app_config)
-        self.browser = BrowserAutomation(headless=True)
-        self.element_finder = AIElementFinder(self.browser)
-        
-    async def execute_action(self, action, parameters):
-        # Authentication handling
-        if not self.is_authenticated:
-            await self.authenticate()
-            
-        # Intelligent navigation to the target page
-        target_page = self.determine_target_page(action)
-        await self.navigate_to_page(target_page)
-        
-        # Execute the requested action with AI assistance
-        if action == "extract_data":
-            return await self.extract_data_from_page(parameters)
-        elif action == "fill_form":
-            return await self.fill_form(parameters)
-        elif action == "download_file":
-            return await self.download_file(parameters)
-        # Other actions...
-                    </pre>
-                </div>
-            </div>
-
-            <div class="project-section">
+            <div class="project-section results-section">
                 <h2>Results</h2>
-                <p>The Workflow Automation Assistant has demonstrated significant improvements in process efficiency, accuracy, and employee productivity across various business scenarios:</p>
+                <p>This project successfully automates the Weekly Business Review (WBR) workflow, significantly reducing manual effort and improving efficiency. By integrating database queries, automated Excel visualization, and email reporting, the system ensures timely and accurate report generation. Below are the key results:</p>
                 
                 <div class="results-grid">
-                    <div class="result-item">
-                        <div class="result-number">85%</div>
-                        <div class="result-text">Reduction in manual processing time</div>
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Data Processing Efficiency</h3>
+                            <p>The system automates SQL queries to extract relevant data from the database, reducing manual query execution time and eliminating human errors.</p>
+                        </div>
                     </div>
-                    <div class="result-item">
-                        <div class="result-number">93%</div>
-                        <div class="result-text">Accuracy in automated data handling</div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Automated Visualization</h3>
+                            <p>Data is seamlessly integrated into an Excel template with VBA scripts, generating insightful visualizations without requiring user intervention.</p>
+                        </div>
                     </div>
-                    <div class="result-item">
-                        <div class="result-number">40+</div>
-                        <div class="result-text">Supported application integrations</div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Streamlined Email Reporting</h3>
+                            <p>The AI agent compiles the visualization and key insights into a structured email, automatically sending reports to designated recipients.</p>
+                        </div>
                     </div>
-                    <div class="result-item">
-                        <div class="result-number">67%</div>
-                        <div class="result-text">Decrease in process completion time</div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Time Savings</h3>
+                            <p>This automation reduces the report preparation time from hours to minutes, allowing analysts to focus on in-depth analysis instead of repetitive tasks.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3>Customization & Scalability</h3>
+                            <p>The workflow can be easily adapted to different datasets and reporting formats, making it a scalable solution for other business automation needs.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <p>The assistant has been particularly effective in automating complex cross-platform workflows such as:</p>
-                <ul>
-                    <li><strong>Financial Operations:</strong> Invoice processing, expense approvals, and financial reporting</li>
-                    <li><strong>HR Processes:</strong> Employee onboarding, time tracking, and benefits administration</li>
-                    <li><strong>Customer Service:</strong> Ticket routing, data collection, and response generation</li>
-                    <li><strong>Data Management:</strong> Regular data synchronization, report generation, and distribution</li>
-                </ul>
+                <div class="project-image-full">
+                    <img src="images/workflow-automation-bg.svg" alt="Workflow Automation Results Visualization">
+                </div>
             </div>
 
             <div class="project-section">
                 <h2>Future Enhancements</h2>
-                <p>The roadmap for the Workflow Automation Assistant includes several exciting enhancements:</p>
+                <p>While this project has successfully automated the WBR workflow, there are several opportunities for further improvements across different perspectives. Future enhancements could include:</p>
                 
                 <div class="enhancement-timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">Q3 2023</div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
                         <div class="timeline-content">
-                            <h4>Advanced Natural Language Workflow Creation</h4>
-                            <p>Enabling users to define complex workflows using conversational language, with the assistant automatically translating requirements into executable processes.</p>
+                            <h3>Incorporating Vision Models for Automated Insights</h3>
+                            <p>Currently, the system processes structured data, but integrating a vision model (such as OpenAI's GPT-4o with vision capabilities) could allow it to extract insights from unstructured data like scanned reports, charts, or screenshots. This would enable automated report generation directly from visual content.</p>
                         </div>
                     </div>
+                    
                     <div class="timeline-item">
-                        <div class="timeline-date">Q4 2023</div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
                         <div class="timeline-content">
-                            <h4>Predictive Process Optimization</h4>
-                            <p>Implementing machine learning algorithms to analyze workflow execution patterns and suggest optimizations for improved efficiency and resource utilization.</p>
+                            <h3>Using LLMs to Generate SQL Queries Dynamically</h3>
+                            <p>Instead of executing pre-written SQL queries, the system could leverage a large language model (LLM) like GPT-4 Turbo to dynamically generate SQL queries based on high-level business questions. This would make the system more flexible and allow users to request custom insights without needing SQL expertise.</p>
                         </div>
                     </div>
+                    
                     <div class="timeline-item">
-                        <div class="timeline-date">Q1 2024</div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
                         <div class="timeline-content">
-                            <h4>Autonomous Error Recovery</h4>
-                            <p>Developing advanced error detection and self-healing capabilities to automatically resolve common issues without human intervention.</p>
+                            <h3>Advanced Natural Language Summarization</h3>
+                            <p>Currently, the email reports provide structured summaries. Future enhancements could integrate LLMs to generate more advanced, context-aware natural language reports, highlighting key anomalies and trends in a more human-like manner.</p>
                         </div>
                     </div>
+                    
                     <div class="timeline-item">
-                        <div class="timeline-date">Q2 2024</div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-stream"></i>
+                        </div>
                         <div class="timeline-content">
-                            <h4>Collaborative Workflow Intelligence</h4>
-                            <p>Creating a system for workflows to share insights and optimizations across organizations while maintaining data privacy and security.</p>
+                            <h3>Real-Time Data Streaming & Monitoring</h3>
+                            <p>Rather than running the workflow at scheduled intervals, integrating real-time streaming technologies (such as Kafka or Google Cloud Pub/Sub) would allow continuous monitoring of business metrics. This would enable proactive alerts when anomalies are detected.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Intelligent Scheduling & Report Personalization</h3>
+                            <p>The system could leverage AI to determine the optimal time to send reports based on recipient engagement patterns. Additionally, reports could be personalized for different teams by dynamically adjusting content based on user roles and interests.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>No-Code/Low-Code Interface for Customization</h3>
+                            <p>Adding a web-based UI with a no-code/low-code interface would allow users to configure automation rules, modify SQL queries, or adjust visualization settings without needing programming knowledge.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Enhanced Security & Role-Based Access Control</h3>
+                            <p>Future iterations could incorporate more robust security measures, such as role-based access control (RBAC) and encryption, ensuring that only authorized users can access and modify sensitive reports.</p>
                         </div>
                     </div>
                 </div>
@@ -683,25 +814,48 @@ class WebAppConnector(BaseConnector):
 
             <div class="project-section">
                 <h2>Technology Stack</h2>
+                <p>This project leverages a carefully selected stack of technologies:</p>
+                
                 <div class="tech-stack">
                     <div class="tech-item">
-                        <img src="images/python-logo.svg" alt="Python">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="60" height="60">
+                            <!-- Python logo -->
+                            <path fill="#3776AB" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/>
+                        </svg>
                         <span>Python</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/tensorflow-logo.svg" alt="TensorFlow">
-                        <span>TensorFlow</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="60" height="60">
+                            <!-- SQL logo representation -->
+                            <path fill="#00758F" d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/>
+                        </svg>
+                        <span>SQL</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/selenium-logo.svg" alt="Selenium">
-                        <span>Selenium</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="60" height="60">
+                            <!-- Excel/VBA logo representation -->
+                            <path fill="#217346" d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM155.7 250.2L192 302.1l36.3-51.9c7.6-10.9 22.6-13.5 33.4-5.9s13.5 22.6 5.9 33.4L221.3 344l46.4 66.2c7.6 10.9 5 25.8-5.9 33.4s-25.8 5-33.4-5.9L192 385.8l-36.3 51.9c-7.6 10.9-22.6 13.5-33.4 5.9s-13.5-22.6-5.9-33.4L162.7 344l-46.4-66.2c-7.6-10.9-5-25.8 5.9-33.4s25.8-5 33.4 5.9z"/>
+                        </svg>
+                        <span>Excel/VBA</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/mongodb-logo.svg" alt="MongoDB">
-                        <span>MongoDB</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="60" height="60">
+                            <!-- Email/SMTP logo representation -->
+                            <path fill="#0078D4" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                        </svg>
+                        <span>Email/SMTP</span>
                     </div>
                 </div>
-                <p>Additional technologies: FastAPI, Redis, Docker, OAuth2, RPA frameworks, and various AI/ML libraries for natural language processing and computer vision.</p>
+                
+                <div style="margin-top: 30px;">
+                    <h3>Technology Details:</h3>
+                    <ul style="list-style-type: disc; margin-left: 20px; line-height: 1.6;">
+                        <li><strong>Python:</strong> The core programming language used for orchestrating the entire workflow, from database connections to email generation.</li>
+                        <li><strong>SQL:</strong> Used for querying databases to extract the necessary business data for analysis and reporting.</li>
+                        <li><strong>Excel/VBA:</strong> Leveraged for data visualization and automated report generation through pre-configured templates and macros.</li>
+                        <li><strong>Email/SMTP:</strong> Utilized for automated distribution of reports to stakeholders, complete with attachments and formatted content.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="project-nav">

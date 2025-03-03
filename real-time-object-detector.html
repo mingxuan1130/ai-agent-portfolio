@@ -579,7 +579,7 @@
                 <span>Machine Learning</span>
                 <span>Real-time Processing</span>
             </div>
-            <p>An advanced AI system that identifies and tracks objects in real-time video streams with high accuracy and minimal latency</p>
+            <p>An AI agent system that identifies and tracks objects in real-time video streams with high accuracy and minimal latency</p>
         </div>
     </section>
 
@@ -589,7 +589,7 @@
             <div class="project-overview">
                 <h2>Project Overview</h2>
                 <div class="overview-content">
-                    <p>In this project, we developed an AI-powered object detection system capable of identifying and tracking multiple objects in real-time video streams. Our solution combines state-of-the-art computer vision algorithms with optimized processing techniques to achieve high accuracy while maintaining minimal latency.</p>
+                    <p>In this project, I built an AI-powered object detection system to identify and track multiple objects in real-time video streams. Traditionally, this is done using Neural Networks (CNNs) and deep learning models. However, no-code tools have revolutionized AI, making complex tasks more accessible. With GPT-4o, I streamlined object detection and tracking, showcasing AI's power with minimal coding.</p>
                     <div class="key-features">
                         <h3>Key Features</h3>
                         <div class="features-grid">
@@ -633,9 +633,9 @@
 
             <div class="project-section">
                 <h2>Motivation</h2>
-                <p>Real-time object detection presents significant challenges in computer vision, particularly when balancing accuracy with processing speed. Traditional approaches often sacrifice one for the other, resulting in systems that are either too slow for real-time applications or too inaccurate for practical use.</p>
+                <p>GPT models have already developed strong abilities in image detection, which inspired me to explore new possibilities. In the previous project, I used my laptop's camera to draw on the screen, which got me thinking—what if I treated the camera as "eyes" for the GPT model? This idea led me to experiment with GPT-4o for object detection and tracking in real-time video streams.</p>
                 
-                <p>Our project addresses this challenge by implementing an optimized architecture that leverages both hardware acceleration and efficient algorithms to achieve high-performance object detection suitable for applications ranging from autonomous vehicles to security systems and augmented reality.</p>
+                <p>By leveraging its vision capabilities, I was able to create a system that not only recognizes objects but also follows their movement, all without complex coding. This approach highlights how AI can make advanced tasks more accessible and intuitive.</p>
                 
                 <div class="project-image-full">
                     <img src="images/object-detector-bg.svg" alt="Real-Time Object Detector Overview">
@@ -645,69 +645,43 @@
             <!-- Redesigned Project Execution Section -->
             <div class="project-section">
                 <h2>Project Execution</h2>
-                <p>Our approach combines several cutting-edge techniques to achieve real-time object detection with high accuracy:</p>
+                <p>This project integrates multiple modules to create an AI-powered real-time object detection and tracking system. By treating a laptop camera as "eyes" and leveraging GPT-4o Turbo, the system can detect, track, and analyze objects in a video stream, providing instant insights and reports:</p>
                 
                 <div class="execution-steps">
                     <div class="step">
                         <div class="step-number">01</div>
                         <div class="step-content">
-                            <h3>Model Architecture</h3>
-                            <p>We implemented a lightweight neural network architecture optimized for speed while maintaining detection accuracy across a wide range of object classes.</p>
+                            <h3>Camera Activation</h3>
+                            <p>The system initializes the laptop camera to capture live video input.</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">02</div>
                         <div class="step-content">
-                            <h3>Hardware Acceleration</h3>
-                            <p>The system leverages GPU acceleration and model quantization techniques to maximize processing speed on both desktop and mobile platforms.</p>
+                            <h3>Data Processing & Transmission</h3>
+                            <p>The captured frames are sent to GPT-4o Turbo for real-time object detection.</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">03</div>
                         <div class="step-content">
-                            <h3>Multi-Object Tracking</h3>
-                            <p>We implemented an efficient tracking algorithm that maintains object identity across video frames, enabling consistent tracking even during occlusions or rapid movement.</p>
+                            <h3>Object Recognition & Tracking</h3>
+                            <p>GPT-4o analyzes the video, identifies objects, and tracks their movement efficiently.</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number">04</div>
                         <div class="step-content">
-                            <h3>Continuous Learning</h3>
-                            <p>The system incorporates online learning capabilities, allowing it to adapt to new environments and improve detection accuracy over time through usage.</p>
+                            <h3>Result Display & Storage</h3>
+                            <p>The detected objects, along with their classifications and tracking data, are displayed on-screen and saved for further analysis.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="project-section">
-                <h2>Technical Implementation</h2>
-                <p>The core of our object detection system is built on a modified version of the YOLO (You Only Look Once) architecture, optimized for real-time performance:</p>
-                
-                <div class="implementation-details">
-                    <h3>Detection Pipeline</h3>
-                    <p>Our implementation uses a single-pass detection approach that processes the entire image in one forward pass through the neural network, significantly reducing computational overhead compared to multi-stage detectors.</p>
-                    
-                    <pre><code>
-# Example configuration for our optimized detection pipeline
-detection_config = {
-    'model': 'tiny_yolo_v4',
-    'confidence_threshold': 0.5,
-    'nms_threshold': 0.4,
-    'input_size': (416, 416),
-    'use_gpu': True,
-    'quantized': True,
-    'tracking_enabled': True,
-    'max_objects': 50
-}
-                    </code></pre>
-                    
-                    <p>The system processes video frames at up to 60 FPS on modern GPUs while maintaining detection accuracy comparable to much slower models. This is achieved through careful optimization of the network architecture and inference pipeline.</p>
-                </div>
-            </div>
-            
             <div class="project-section results-section">
                 <h2>Results</h2>
-                <p>Our Real-Time Object Detector achieves impressive performance across a range of metrics and use cases:</p>
+                <p>My Real-Time Object Detector achieves impressive performance across several key metrics:</p>
                 
                 <div class="results-grid">
                     <div class="result-card">
@@ -716,7 +690,7 @@ detection_config = {
                         </div>
                         <div class="result-content">
                             <h3>Processing Speed</h3>
-                            <p>Achieves 30-60 FPS on desktop GPUs and 15-25 FPS on modern mobile devices, enabling true real-time applications.</p>
+                            <p>Configurable detection frequency with adjustable intervals to balance between API costs and responsiveness based on specific use case requirements.</p>
                         </div>
                     </div>
                     <div class="result-card">
@@ -725,7 +699,7 @@ detection_config = {
                         </div>
                         <div class="result-content">
                             <h3>Detection Accuracy</h3>
-                            <p>Maintains 85-92% mAP (mean Average Precision) across common object classes while operating at real-time speeds.</p>
+                            <p>Leverages GPT-4o's vision capabilities with customizable confidence thresholds to fine-tune the precision-recall balance for different object detection scenarios.</p>
                         </div>
                     </div>
                     <div class="result-card">
@@ -733,8 +707,8 @@ detection_config = {
                             <i class="fas fa-battery-full"></i>
                         </div>
                         <div class="result-content">
-                            <h3>Energy Efficiency</h3>
-                            <p>Optimized for low power consumption, enabling extended operation on battery-powered devices without excessive drain.</p>
+                            <h3>Optimization</h3>
+                            <p>Implements adaptive frame resizing with adjustable dimensions to optimize the balance between image quality and performance for various hardware capabilities.</p>
                         </div>
                     </div>
                 </div>
@@ -746,43 +720,52 @@ detection_config = {
             
             <div class="project-section">
                 <h2>Future Enhancements</h2>
-                <p>We're actively working on several enhancements to further improve the system's capabilities:</p>
+                <p>I'm exploring several practical enhancements to further improve the system's capabilities:</p>
                 
                 <div class="enhancement-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Edge AI Optimization</h3>
-                            <p>Further optimizing the model for deployment on edge devices with limited computational resources, including specialized AI accelerators.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">
-                            <i class="fas fa-cube"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>3D Object Detection</h3>
-                            <p>Extending the system to perform 3D object detection and localization using depth information from stereo cameras or LiDAR sensors.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Federated Learning</h3>
-                            <p>Implementing privacy-preserving federated learning to improve model accuracy across distributed devices without sharing sensitive data.</p>
-                        </div>
-                    </div>
                     <div class="timeline-item">
                         <div class="timeline-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>Behavior Analysis</h3>
-                            <p>Adding higher-level behavior analysis capabilities to detect complex activities and interactions between objects in the scene.</p>
+                            <h3>Performance Benchmarking Against YOLO</h3>
+                            <p>Conducting systematic comparison with traditional object detection algorithms like YOLO to identify specific strengths (like better detection of small or partially occluded objects) and areas for improvement (such as handling low-light conditions). This analysis will help me optimize my approach by potentially incorporating the best aspects of both systems.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Integrating GPT's Text Capabilities</h3>
+                            <p>Combining visual detection with GPT's natural language processing to create a more interactive experience. For example, enabling users to ask questions about detected objects ("What brand is that laptop?"), get detailed descriptions of scenes ("Describe what's happening in my living room"), or receive alerts based on specific criteria ("Alert me when someone approaches the front door").</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Personalized Object Recognition</h3>
+                            <p>Developing a feature that allows the system to learn and recognize specific personal objects or people important to the user. This would enable applications like finding lost items ("Where did I last see my keys?") or creating smarter home security systems that can distinguish between household members and strangers.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Edge Computing Optimization</h3>
+                            <p>Adapting the system to run efficiently on edge devices without constant cloud connectivity, reducing latency and addressing privacy concerns. This involves optimizing the model size and computational requirements while maintaining detection accuracy, potentially through techniques like model quantization and pruning.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Developer API and Integration Platform</h3>
+                            <p>Creating an API that allows developers to easily integrate this object detection system into their own applications and services. This would expand the utility of the technology across various domains from retail analytics to assistive technology for visually impaired users.</p>
                         </div>
                     </div>
                 </div>
@@ -794,21 +777,43 @@ detection_config = {
                 
                 <div class="tech-stack">
                     <div class="tech-item">
-                        <img src="images/python-logo.svg" alt="Python">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="60" height="60">
+                            <!-- Python logo -->
+                            <path fill="#3776AB" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/>
+                        </svg>
                         <span>Python</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/tensorflow-logo.svg" alt="TensorFlow">
-                        <span>TensorFlow</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="60" height="60">
+                            <!-- OpenAI GPT-4o logo representation -->
+                            <path fill="#10a37f" d="M320 0c17.7 0 32 14.3 32 32V96H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H352V384c0 35.3 28.7 64 64 64s64-28.7 64-64V336c0-17.7 14.3-32 32-32s32 14.3 32 32v48c0 70.7-57.3 128-128 128s-128-57.3-128-128V160H160c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V32c0-17.7 14.3-32 32-32zM128 96c0-35.3-28.7-64-64-64S0 60.7 0 96s28.7 64 64 64s64-28.7 64-64zm64 128c0 35.3 28.7 64 64 64s64-28.7 64-64s-28.7-64-64-64s-64 28.7-64 64zM512 96c0-35.3-28.7-64-64-64s-64 28.7-64 64s28.7 64 64 64s64-28.7 64-64zM512 128c0-35.3-28.7-64-64-64s-64 28.7-64 64s28.7 64 64 64s64-28.7 64-64z"/>
+                        </svg>
+                        <span>OpenAI GPT-4o</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/opencv-logo.svg" alt="OpenCV">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="60" height="60">
+                            <!-- OpenCV logo representation -->
+                            <path fill="#5C3EE8" d="M384 476.1L192 421.2V35.9L384 90.8V476.1zm32-1.2V88.4L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3V394.6c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2V423.6L32.9 474.5C17.1 480.8 0 469.2 0 452.2V117.4c0-9.8 6-18.6 15.1-22.3z"/>
+                        </svg>
                         <span>OpenCV</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/cuda-logo.svg" alt="CUDA">
-                        <span>CUDA</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="60" height="60">
+                            <!-- Threading/Multithreading representation -->
+                            <path fill="#E74C3C" d="M144 160A80 80 0 1 0 144 0a80 80 0 1 0 0 160zm368 0A80 80 0 1 0 512 0a80 80 0 1 0 0 160zM0 298.7C0 310.4 9.6 320 21.3 320H234.7c.2 0 .4 0 .7 0c-26.6-23.5-43.3-57.8-43.3-96c0-7.6 .7-15 1.9-22.3c-13.6-6.3-28.7-9.7-44.6-9.7H106.7C47.8 192 0 239.8 0 298.7zM320 320c24 0 45.9-8.8 62.7-23.3c2.5-3.7 5.2-7.3 8-10.7c2.7-3.3 5.7-6.1 9-8.3C410 262.3 416 243.9 416 224c0-53-43-96-96-96s-96 43-96 96s43 96 96 96zm65.4 60.2c-10.3-5.9-18.1-16.2-20.8-28.2H261.3C187.7 352 128 411.7 128 485.3c0 14.7 11.9 26.7 26.7 26.7H455.2c-2.1-5.2-3.2-10.9-3.2-16.4v-3c-1.3-.7-2.7-1.5-4-2.3l-2.6 1.5c-16.8 9.7-40.5 8-54.7-9.7c-4.5-5.7-8.6-11.6-12.4-17.6l-6.2-9.9-6.2-9.9C356.4 431.1 351.9 420.6 351.9 409.6v-1.1l-6.4-6.4c-3-3-6.6-5.1-10.4-6.1z"/>
+                        </svg>
+                        <span>Multithreading</span>
                     </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3>Technology Details:</h3>
+                    <ul style="list-style-type: disc; margin-left: 20px; line-height: 1.6;">
+                        <li><strong>Python:</strong> The core programming language used to build the application, handling everything from camera input to API communication.</li>
+                        <li><strong>OpenAI GPT-4o:</strong> The multimodal AI model that powers the vision capabilities, enabling object detection and classification without traditional computer vision algorithms.</li>
+                        <li><strong>OpenCV:</strong> Computer Vision library used for camera handling, frame processing, and visualization of detection results with bounding boxes.</li>
+                        <li><strong>Multithreading:</strong> Implemented to ensure smooth performance by separating camera capture, API communication, and UI rendering into parallel processes.</li>
+                    </ul>
                 </div>
             </div>
             
