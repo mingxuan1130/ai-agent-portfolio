@@ -1,0 +1,28 @@
+Instructions for pushing your website to GitHub:
+
+1. Open GitHub Desktop (you can search for it in the Start menu)
+
+2. When GitHub Desktop opens, it will ask you to sign in or add a local repository.
+   - Sign in with your GitHub account if prompted
+   - Click on "Add an Existing Repository from your Hard Drive"
+   - Browse to: C:\Users\mingxuanliu\Desktop\agent project\website
+   - Click "Add Repository"
+
+3. Once the repository is added, you should see your changes in the left panel:
+   - index.html
+   - real-time-object-detector.html
+   - workflow-automation-assistant.html
+
+4. Add a summary message in the text field at the bottom left (e.g., "Update website content")
+
+5. Click the "Commit to main" button
+
+6. Click the "Push origin" button at the top right to push your changes to GitHub
+
+7. Your changes should now be pushed to your GitHub repository at:
+   https://github.com/mingxuan1130/ai-agent-portfolio
+
+If you encounter any issues with authentication:
+- In GitHub Desktop, go to File > Options > Accounts
+- Sign in with your GitHub account credentials
+- Try pushing again 

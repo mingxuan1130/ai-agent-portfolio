@@ -1,0 +1,32 @@
+Alternative Method: Using a Personal Access Token (PAT) for GitHub Authentication
+
+If GitHub Desktop doesn't work for you, you can use a Personal Access Token:
+
+1. Go to GitHub.com and sign in to your account
+
+2. Click on your profile picture in the top right corner, then click "Settings"
+
+3. Scroll down and click on "Developer settings" at the bottom of the left sidebar
+
+4. Click on "Personal access tokens" and then "Tokens (classic)"
+
+5. Click "Generate new token" and then "Generate new token (classic)"
+
+6. Give your token a name (e.g., "Website Push Token")
+
+7. Select the "repo" scope to allow access to your repositories
+
+8. Click "Generate token" at the bottom of the page
+
+9. Copy the generated token (IMPORTANT: You won't be able to see it again!)
+
+10. Open a new PowerShell window and run these commands (replace YOUR_TOKEN with the token you copied):
+
+    cd "C:\Users\mingxuanliu\Desktop\agent project\website"
+    $env:PATH += ";C:\Users\mingxuanliu\AppData\Local\GitHubDesktop\app-3.4.17\resources\app\git\cmd"
+    git remote set-url origin https://YOUR_USERNAME:YOUR_TOKEN@github.com/mingxuan1130/ai-agent-portfolio.git
+    git push origin main
+
+Replace YOUR_USERNAME with your GitHub username and YOUR_TOKEN with the token you generated.
+
+This method allows you to authenticate with GitHub using a token instead of your password. 
